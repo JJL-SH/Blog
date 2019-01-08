@@ -1,6 +1,6 @@
 # 计数器
 
-参考网址:
+参考网址::
 
 [http://www.w3cplus.com/css3/css-counters.html](http://www.w3cplus.com/css3/css-counters.html)  
 [http://www.webhek.com/css-counters](http://www.webhek.com/css-counters)  
