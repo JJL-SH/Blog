@@ -2,12 +2,14 @@
 
 * [Initial page](README.md)
 
-## Sublime text3
+## Tool
 
-* [激活方式](sublime-text3/sublimetext3-ji-huo-fang-shi.md)
-* [新建自定义代码片段](sublime-text3/xin-jian-zi-ding-yi-dai-ma-pian-duan.md)
+* [Sublime-text](tool/sublime-text/README.md)
+  * [激活方式](tool/sublime-text/sublimetext3-ji-huo-fang-shi.md)
+  * [新建自定义代码片段](tool/sublime-text/xin-jian-zi-ding-yi-dai-ma-pian-duan.md)
 
-## CSS3
+## Front-end
 
-* [计数器](css3/ji-shu-qi.md)
+* [Css](css3/css/README.md)
+  * [计数器](css3/css/ji-shu-qi.md)
 
