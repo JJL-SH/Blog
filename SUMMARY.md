@@ -14,5 +14,6 @@
   * [计数器](front-end/css/ji-shu-qi.md)
 * [React](front-end/react/README.md)
   * [diff算法](front-end/react/diff.md)
+  * [懒惰的'setState'](front-end/react/setstate.md)
 * [Html](front-end/html/README.md)
   * [跨域的9种方法](front-end/html/sop.md)
