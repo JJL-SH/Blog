@@ -102,6 +102,3 @@ document.body.appendChild(document.createTextNode('dude!'));
 * 使用`resize`事件时，做**防抖**和**节流**处理。
 * 对动画元素使用`absolute / fixed`属性。
 * 批量修改元素时，可以先让元素脱离文档流，等修改完毕后，再放入文档流。
-
-### 
-
