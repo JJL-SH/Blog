@@ -2,16 +2,14 @@
 
 ## 同源策略
 
-> 同源策略/SOP(Same origin policy)是一种约定，有 NetScape 公司 1995 年引入浏览器，它是浏览器最核心也是最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS,CSRF 等攻击。所谓同源是指“协议+域名+端口”三者相同，即便两个不同的域名指向同一个 IP 地址，也是非同源。
+> 同源策略/SOP\(Same origin policy\)是一种约定，有 NetScape 公司 1995 年引入浏览器，它是浏览器最核心也是最基本的安全功能，如果缺少了同源策略，浏览器很容易受到 XSS,CSRF 等攻击。所谓同源是指“协议+域名+端口”三者相同，即便两个不同的域名指向同一个 IP 地址，也是非同源。
 
 ## 什么是跨域
 
-当协议、域名、端口号，有一个或多个不同时，有希望可以访问并获取数据的现象称为跨域访问，同源策略限制下 cookie,localStorage,dom,ajax,IndexDB 都是不支持跨域的。
-假设 cookie 支持了跨域，http 协议无状态，当用户访问了一个银行网站登录后，银行服务器返回了一个 sessionID，当通过当前浏览器再访问一个恶意网站，如果 cookie 支持跨域，恶意网站将获取 sessionId 并访问银行网站，出现安全性问题；IndexDB,localStorage 等数据存储在不同域，页面切换时是获取不到的；假设 dom 元素可以跨域，在自己的页面写入一个 iframe 内部嵌入的地址是 www.baidu.com ，当在百度页面 登录账号密码时就可以在自己的页面获取百度的数据信息，这显然是不合理的。
-这就是为什么 cookie,localStorage,dom,ajax,IndexDB 会受到同源策略会限制，下面还有一点对跨域理解的误区：
+当协议、域名、端口号，有一个或多个不同时，有希望可以访问并获取数据的现象称为跨域访问，同源策略限制下 cookie,localStorage,dom,ajax,IndexDB 都是不支持跨域的。 假设 cookie 支持了跨域，http 协议无状态，当用户访问了一个银行网站登录后，银行服务器返回了一个 sessionID，当通过当前浏览器再访问一个恶意网站，如果 cookie 支持跨域，恶意网站将获取 sessionId 并访问银行网站，出现安全性问题；IndexDB,localStorage 等数据存储在不同域，页面切换时是获取不到的；假设 dom 元素可以跨域，在自己的页面写入一个 iframe 内部嵌入的地址是 www.baidu.com ，当在百度页面 登录账号密码时就可以在自己的页面获取百度的数据信息，这显然是不合理的。 这就是为什么 cookie,localStorage,dom,ajax,IndexDB 会受到同源策略会限制，下面还有一点对跨域理解的误区：
 
 > 误区：同源策略限制下，访问不到后台服务器的数据，或访问到后台服务器的数据后没有返回；
-
+>
 > 正确：同源策略限制下，可以访问到后台服务器的数据，后台服务器会 正常返回数据，而被浏览器给拦截了。
 
 ## 实现跨域的方式
@@ -57,8 +55,8 @@ jsonp({
 
 缺点：
 
-- 智能发送 get 请求不支持 post,put,delete
-- 不安全，容易引发 xss 攻击，别人在返回的结果中返回了下面的代码。
+* 智能发送 get 请求不支持 post,put,delete
+* 不安全，容易引发 xss 攻击，别人在返回的结果中返回了下面的代码。
 
 ```text
 `let script = document.createElement('script');
@@ -70,11 +68,11 @@ document.body.appendChild(script)`;
 
 ## 二、使用 CORS 跨域
 
-> 跨域资源共享/CORS(Cross-Origin Resource Sharing)是 W3C 的一个工作草案，定义了必须在访问跨域资源时，浏览器与服务器应该如何沟通。CORS 背后的基本思想，就是使用自定义的 HTTP 头部让浏览器与服务器进行够用，从而决定请求或相应应该是成功，还是失败。
+> 跨域资源共享/CORS\(Cross-Origin Resource Sharing\)是 W3C 的一个工作草案，定义了必须在访问跨域资源时，浏览器与服务器应该如何沟通。CORS 背后的基本思想，就是使用自定义的 HTTP 头部让浏览器与服务器进行够用，从而决定请求或相应应该是成功，还是失败。
 
 使用场景：多用于开发时，前端与后台在不同的 IP 地址下进行数据访问。
 
-现在启动两个端口号不同的服务器，创建跨域条件，服务器(NodeJS)代码如下
+现在启动两个端口号不同的服务器，创建跨域条件，服务器\(NodeJS\)代码如下
 
 ```text
 // 服务器1
@@ -98,7 +96,7 @@ app.listen(4000)
 
 > npm install express -save
 
-通过访问 http://localhost:3000/index.html 获取 index.html 文件并执行其中的 ajax 请求 http://localhost:4000/getData 接口去获取数据，index.html 文件内容如下
+通过访问 [http://localhost:3000/index.html](http://localhost:3000/index.html) 获取 index.html 文件并执行其中的 ajax 请求 [http://localhost:4000/getData](http://localhost:4000/getData) 接口去获取数据，index.html 文件内容如下
 
 ```text
 <!DOCTYPE html>
@@ -181,16 +179,18 @@ app.listen(4000)
 
 ## 三、使用 postMessage 实现跨域
 
-> postMessage 是 H5 的新 API，跨文档消息传送(cross-document messaging)，有时候简称为XMD，指的是在来自不同域的页面间传递消息
+> postMessage 是 H5 的新 API，跨文档消息传送\(cross-document messaging\)，有时候简称为XMD，指的是在来自不同域的页面间传递消息
 
-调用方式：window.postMessage(message, targetOrigin)
-- message:发送的数据
-- targetOrigin:发送的窗口域
+调用方式：window.postMessage\(message, targetOrigin\)
+
+* message:发送的数据
+* targetOrigin:发送的窗口域
 
 在对应的页面中用 message 时间接收，时间对象中有 data,origin,source 三个重要信息
-- data:接收到的数据
-- origin:接收到数据源的域（数据来自哪个域）
-- source:接收到数据源的窗口对象（数据来自哪个窗口对象）
+
+* data:接收到的数据
+* origin:接收到数据源的域（数据来自哪个域）
+* source:接收到数据源的窗口对象（数据来自哪个窗口对象）
 
 使用场景：不是使用 Ajax 的数据通信，更多是在两个页面之间的通信，在 A 页面中引入 B 页面，在 A,B 两个页面之间通信。
 
@@ -210,7 +210,7 @@ app.use(express.static(__dirname));
 app.listen(4000);
 ```
 
-通过访问 http://localhost:3000/a.html，在 a.html 中使用 iframe 标签引入 http://localhost:4000/b.html 在两个窗口间传递数据
+通过访问 [http://localhost:3000/a.html，在](http://localhost:3000/a.html，在) a.html 中使用 iframe 标签引入 [http://localhost:4000/b.html](http://localhost:4000/b.html) 在两个窗口间传递数据
 
 ```text
 <!DOCTYPE html>
@@ -240,7 +240,7 @@ app.listen(4000);
   <title>Document</title>
 </head>
 <body>
-  
+
 </body>
 </html>
 <script>
@@ -253,7 +253,7 @@ app.listen(4000);
 
 ## 四、使用 window.name 实现跨域
 
-同样是页面之间的通信，需要借助 iframe 标签，A 页面和 B 页面是同域的 http://localhost:3000，C 页面在独立的域 http://localhost:4000。
+同样是页面之间的通信，需要借助 iframe 标签，A 页面和 B 页面是同域的 [http://localhost:3000，C](http://localhost:3000，C) 页面在独立的域 [http://localhost:4000。](http://localhost:4000。)
 
 ```text
 // 服务器1
@@ -269,7 +269,7 @@ app.use(express.static(__dirname));
 app.listen(4000);
 ```
 
-实现思路：在 A 页面中将 iframe 的 src 指向 C 页面，在 C 页面中将属性值存入 window.name 中，再把 iframe 的 src 换成同域的 B 页面，在当前的 iframe 的 window 对象中取出 name 的值，访问 http://localhost:3000/a.html。
+实现思路：在 A 页面中将 iframe 的 src 指向 C 页面，在 C 页面中将属性值存入 window.name 中，再把 iframe 的 src 换成同域的 B 页面，在当前的 iframe 的 window 对象中取出 name 的值，访问 [http://localhost:3000/a.html。](http://localhost:3000/a.html。)
 
 ```text
 <!DOCTYPE html>
@@ -312,7 +312,7 @@ app.listen(4000);
 
 ## 五、使用 location.hash 实现
 
-与 window.name 跨域的情况相同，是不同域的页面间的参数传递，需要借助 iframe 标签，A 页面和 B 页面是同域的 http://localhost:3000，C 页面是独立的域 http://localhost:4000。
+与 window.name 跨域的情况相同，是不同域的页面间的参数传递，需要借助 iframe 标签，A 页面和 B 页面是同域的 [http://localhost:3000，C](http://localhost:3000，C) 页面是独立的域 [http://localhost:4000。](http://localhost:4000。)
 
 ```text
 // 服务器1
@@ -328,7 +328,7 @@ app.use(express.static(__dirname));
 app.listen(4000);
 ```
 
-实现思路：A 页面通过 iframe 引入 C 页面，并给 C 页面传一个 hash 值，C 页面收到 hash 值后创建 iframe 引入 B 页面，把 hash 值传给 B 页面，B 页面将自己的 hash 值放在 A 页面的 hash 值中，访问 http://localhost:3000/a.html。
+实现思路：A 页面通过 iframe 引入 C 页面，并给 C 页面传一个 hash 值，C 页面收到 hash 值后创建 iframe 引入 B 页面，把 hash 值传给 B 页面，B 页面将自己的 hash 值放在 A 页面的 hash 值中，访问 [http://localhost:3000/a.html。](http://localhost:3000/a.html。)
 
 ```text
 <!DOCTYPE html>
@@ -392,11 +392,11 @@ app.listen(3000);
 
 想要模拟使用 document.domain 跨域的场景需要做些小小的准备，到 C:\Windows\System32\drivers\etc 该路径下找到 hosts 文件，在最下面创建一个一级域名和一个二级域名。
 
-> 127.0.0.1          www.domainacross.com
+> 127.0.0.1 www.domainacross.com
+>
+> 127.0.0.1 sub.domainacross.com
 
-> 127.0.0.1          sub.domainacross.com
-
-命名是随意的，只要是符合一级域名与 二级域名的关系即可，然后访问 http://www.domainacross.com:3000/a.html。
+命名是随意的，只要是符合一级域名与 二级域名的关系即可，然后访问 [http://www.domainacross.com:3000/a.html。](http://www.domainacross.com:3000/a.html。)
 
 ```text
 <!DOCTYPE html>
@@ -436,7 +436,7 @@ app.listen(3000);
 
 ## 七、使用 WebSocket 实现跨域
 
-> WebSocket 没有跨域限制，高级 API（不兼容），想要兼容低版本浏览器，可以使用 socket.io 的库，WebSocket 与 HTTP 内部都是基于 TCP 协议，区别在于 HTTP 是单向的（单双工），WebSocket 是双向的（全双工），协议是 ws:// 和 wss:// 对应 http:// 和 https://，因为没有跨域限制，所以使用 file:// 协议也可以进行通信。
+> WebSocket 没有跨域限制，高级 API（不兼容），想要兼容低版本浏览器，可以使用 socket.io 的库，WebSocket 与 HTTP 内部都是基于 TCP 协议，区别在于 HTTP 是单向的（单双工），WebSocket 是双向的（全双工），协议是 ws:// 和 wss:// 对应 http:// 和 [https://，因为没有跨域限制，所以使用](https://，因为没有跨域限制，所以使用) file:// 协议也可以进行通信。
 
 由于我们在 NodeJS 服务中使用了 WebSocket，所以需要安装对应的依赖：
 
@@ -487,14 +487,14 @@ wss.on("connection", function(ws) {
 
 ## 八、使用 nginx 实现跨域
 
-nginx 本身就是一个服务器，因此我们需要去 nginx 官网下载服务环境 http://nginx.org/en/download.html。
+nginx 本身就是一个服务器，因此我们需要去 nginx 官网下载服务环境 [http://nginx.org/en/download.html。](http://nginx.org/en/download.html。)
 
-- 下载后解压到一个文件夹中
-- 双击 nginx.exe 启动（此时可以通过 http://localhost 访问 nginx 服务）
-- 在目录新建 json 文件夹
-- 进入 json 文件夹新建 data.json 文件并写入内容
-- 回到 nginx 根目录进入 conf 文件夹
-- 使用编辑器打开 nginx.conf 进行配置
+* 下载后解压到一个文件夹中
+* 双击 nginx.exe 启动（此时可以通过 [http://localhost](http://localhost) 访问 nginx 服务）
+* 在目录新建 json 文件夹
+* 进入 json 文件夹新建 data.json 文件并写入内容
+* 回到 nginx 根目录进入 conf 文件夹
+* 使用编辑器打开 nginx.conf 进行配置
 
 ```text
 // data.json
@@ -517,6 +517,8 @@ server {
 ```
 
 含义：
-- ~.*\.json：代表忽略大小写，后缀名为 json 的文件；
-- root json：代表 json 文件夹；
-- add_header：代表加入跨域的响应头及允许访问的域，* 为允许任何访问。
+
+* ~.\*.json：代表忽略大小写，后缀名为 json 的文件；
+* root json：代表 json 文件夹；
+* add\_header：代表加入跨域的响应头及允许访问的域，\* 为允许任何访问。
+

@@ -17,3 +17,5 @@
   * [懒惰的'setState'](front-end/react/setstate.md)
 * [Html](front-end/html/README.md)
   * [跨域的9种方法](front-end/html/sop.md)
+  * [浏览器渲染原理](front-end/html/lan-qi-ran-yuan-li.md)
+
