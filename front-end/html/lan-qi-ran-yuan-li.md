@@ -12,7 +12,7 @@
 
 ### 浏览器工作流程
 
-![](https://user-gold-cdn.xitu.io/2019/1/10/16836d0b7afebcdd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](../../.gitbook/assets/wx20190111-155251.png)
 
 上图我们可以看出，浏览器会解析三个模块：
 
@@ -29,24 +29,24 @@
 
 ### 不同内核的浏览器渲染
 
-![](https://user-gold-cdn.xitu.io/2019/1/10/16836ec4fcc37d74?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](../../.gitbook/assets/wx20190111-155309.png)
 
 上图是`webkit`内核的渲染流程，和总体渲染流程差不多，要构建`HTML`的`DOM Tree`，和`CSS`规则树，然后合并生成`Render Tree`，最后渲染。
 
-![](https://user-gold-cdn.xitu.io/2019/1/10/16836f26e5a17b6a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](../../.gitbook/assets/wx20190111-155316.png)
 
 这个是`Mozilla`的`Gecko`渲染引擎。  
 总体看来渲染流程差不多，只不过在生成渲染树或者`Frame`树时，两者叫法不一致，`webkit`称之为`Layout`，`Gecko`叫做`Reflow`。
 
 ### 渲染顺序
 
-![](https://user-gold-cdn.xitu.io/2019/1/10/16836f8fa40fd40d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](../../.gitbook/assets/wx20190111-155324.png)
 
 * 当浏览器拿到一个网页后，首先浏览器会先解析`HTML`，如果遇到了外链的`css`，会一下载`css`，一边解析`HTML`。
 * 当`css`下载完成后，会继续解析`css`，生成`css Rules tree`,不会影响到`HTML`的解析。
 * 当遇到`<script>`标签时，一旦发现有对`javascript`的引用，就会立即下载脚本，同时阻断文档的解析，等脚本执行完成后，再开始文档的解析。
 
-![](https://user-gold-cdn.xitu.io/2019/1/10/16837049dfc8bf00?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](../../.gitbook/assets/wx20190111-155332.png)
 
 * 当`DOM`树和`CSS`规则树已经生成完毕后，构造 `Rendering Tree`。
 * 调用系统渲染页面。
