@@ -12,6 +12,7 @@
 
 * [Javascript](front-end/javascript/README.md)
   * [IoC理念](front-end/javascript/ioc.md)
+  * [图解JavaScript的参数传递](front-end/javascript/parameter.md)
 * [Css](front-end/css/README.md)
   * [计数器](front-end/css/ji-shu-qi.md)
 * [React](front-end/react/README.md)
