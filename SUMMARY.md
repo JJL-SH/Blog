@@ -14,7 +14,7 @@
   * [IoC理念](front-end/javascript/ioc.md)
   * [图解JavaScript的参数传递](front-end/javascript/parameter.md)
 * [Css](front-end/css/README.md)
-  * [计数器](front-end/css/ji-shu-qi.md)
+  * [CSS 计数器](front-end/css/ji-shu-qi.md)
 * [React](front-end/react/README.md)
   * [diff算法](front-end/react/diff.md)
   * [懒惰的'setState'](front-end/react/setstate.md)
