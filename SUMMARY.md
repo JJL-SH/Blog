@@ -7,7 +7,7 @@
 * [Sublime-text](tool/sublime-text/README.md)
   * [激活方式](tool/sublime-text/sublimetext3-ji-huo-fang-shi.md)
   * [新建自定义代码片段](tool/sublime-text/xin-jian-zi-ding-yi-dai-ma-pian-duan.md)
-  * [扩展安装源 packagecontrol.io 无法访问](tool/sublime-text/packagecontrol.md)
+  * [packagecontrol.io 无法访问](tool/sublime-text/packagecontrol.md)
 
 ## Front-end
 
