@@ -53,3 +53,4 @@
 | \*.zip   | aplication/zip                                                          |
 | \*.xlsx  | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet       |
 | \*.docx  | application/vnd.openxmlformats-officedocument.wordprocessingml.document |
+| \*.mhtml | value.type multipart/related                                            |
